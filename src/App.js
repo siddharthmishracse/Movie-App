@@ -16,10 +16,15 @@ const App = () => {
     },[]);
 
     const searchMovies = async (title) => {
+       try {
         const response = await fetch(`${API_URL}&s=${title}`);
         const data = await response.json();
-
         setMovies(data.Search);
+       }catch(e){
+        console.log("error",e);
+       }
+
+       
     }
 
     return(
